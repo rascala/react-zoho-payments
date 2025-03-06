@@ -1,7 +1,7 @@
 {
 	"name": "react-zoho-payments",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "",
 	"license": "",
 	"keywords": [],
@@ -9,9 +9,10 @@
 		"type": "git",
 		"url": ""
 	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
-		"dev": "concurrently \"pnpm build --watch\" \"pnpm storybook\" \"pnpm test\" ",
-		"build": "tsup",
+		"build": "tsup --dts",
 		"lint": "biome check --write --unsafe .",
 		"lint:ci": "biome check --unsafe .",
 		"test": "vitest",
@@ -23,7 +24,6 @@
 		"link:self": "pnpm link --global",
 		"prepare": "lefthook install"
 	},
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"require": "./dist/index.js",

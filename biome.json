@@ -6,7 +6,9 @@
 			"**/storybook-static/**",
 			"**/coverage/**",
 			"**/.next/**",
-			"**/node_modules/**"
+			"**/node_modules/**",
+			"**/examples/**",
+			"src/zohopayments.min.js"
 		]
 	},
 	"organizeImports": {

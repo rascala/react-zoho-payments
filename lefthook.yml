@@ -7,5 +7,3 @@ pre-commit:
       run: pnpm tsc
     build:
       run: pnpm build
-    test:
-      run: pnpm test:ci
