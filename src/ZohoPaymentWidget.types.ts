@@ -38,7 +38,7 @@ export interface IZohoPaymentWidgetProps {
 	onChargeThreedsError?: (payload: IZohoPaymentMessagePayload) => void;
 
 	onError?: (payload: IZohoPaymentMessagePayload) => void;
-	onOtherMessage?: (payload: object) => void;
+	onEvent?: (event: object) => void;
 
 	getFinancialConnectionsAccounts?: (
 		payload: IZohoPaymentMessagePayload,
