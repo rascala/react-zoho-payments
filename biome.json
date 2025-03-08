@@ -7,8 +7,7 @@
 			"**/coverage/**",
 			"**/.next/**",
 			"**/node_modules/**",
-			"**/examples/**",
-			"src/zohopayments.min.js"
+			"**/zohopayments.min.js"
 		]
 	},
 	"organizeImports": {

@@ -20,6 +20,7 @@ const ZohoPaymentWidget = (props: IZohoPaymentWidgetProps) => {
 		(e: { data: { action: string; payload: object } }) => {
 			console.log("message");
 			console.log(e.data);
+			props.onEvent?.(e.data ?? {});
 			const action = e.data?.action;
 			const payload = e.data?.payload;
 			switch (action) {
@@ -69,7 +70,6 @@ const ZohoPaymentWidget = (props: IZohoPaymentWidgetProps) => {
 					props.onChargeThreedsError?.(payload as IZohoPaymentMessagePayload);
 					break;
 				default:
-					props.onOtherMessage?.(payload as object);
 					break;
 			}
 		},
