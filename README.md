@@ -64,7 +64,14 @@ Use it as a component in your react code
 - `businessName`: string (required)
 
   Will be visible at the top of the widget as a title
+
   TODO - add screenshot
+
+  `Note`: The name/account which will appear in their UPI app or banking page will be the one you have registered with Zoho payments
+
+  This text will appear only in the Zoho Payments Widget
+
+  (not on their HDFC page or GooglePay app or PhonePe app etc, which will have the registered organization name and account)
 - `businessDesc`: string (required)
 
   Will be visible under businessName as a subtitle
@@ -90,7 +97,9 @@ Use it as a component in your react code
   TODO - add screenshot
 - `paymentsSessionId`: string (required)
 
-  payments_sesssion_id from Zoho. Is a string of 16 digits
+  payments_sesssion_id from Zoho. Is usually a string of 16 digits
+
+  refer: https://www.zoho.com/in/payments/api/v1/payment-session/#create-payment-session
 - `onWidgetBooted`: callback (optional)
 
   callback function when widget is shown
@@ -112,7 +121,7 @@ Use it as a component in your react code
   `{payment_id: string, message: string}`
 
   You can use this payment_id to confirm payment status from your backend
- 
+
   `Note`: Set `show` to `false` in this callback to close the widget
 - `onClose`: callback (optional)
 
