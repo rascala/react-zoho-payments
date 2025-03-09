@@ -60,7 +60,7 @@ Use it as a component in your react code
   prop to show the zoho payments widget
 
   `Note`: Only set this to true after required props are filled
-
+  
   If set to show without valid api-key, account-id or payments_session_id, the widget will not boot up correctly
 
 - <h3>businessName: string (required)</h3>
@@ -68,6 +68,12 @@ Use it as a component in your react code
   Will be visible at the top of the widget as a title(highlighted inside red-rectangle below)
   
   <img width="300" alt="zoho-payments-name" src="https://github.com/user-attachments/assets/45e044f3-2cb9-4860-9f41-4bcb9da249d4" />
+  
+  `Note`: The name/account which will appear in their UPI app or banking page will be the one you have registered with Zoho payments
+
+  This text will appear only in the Zoho Payments Widget
+
+  (not on their HDFC page or GooglePay app or PhonePe app etc, which will have the registered organization name and account)
 
 - <h3>businessDesc: string (required)</h3>
 
@@ -78,19 +84,23 @@ Use it as a component in your react code
 - <h3>buyerName: string (required)</h3>
 
   Name of the buyer when confirmation is sent
+
 - <h3>buyerEmail: string (required)</h3>
 
   email address of the buyer to which confirmation will be sent
+
 - <h3>amountInRs: string (required)</h3>
 
   Payment amount in rupees as a string. Will be shown in widget(highlighted inside red-rectangle below)
   
   <img width="300" alt="zoho-payments-amount" src="https://github.com/user-attachments/assets/24b7197c-8b74-41b8-ad2f-9665cc91b660" />
 
-  `Note`: amount given should match the amount sent to Zoho api when getting payments_session_id 
+  `Note`: amount given should match the amount sent to Zoho api when getting payments_session_id
+
 - <h3>apiKey: string (required)</h3>
 
-  Zoho Payments api key 
+  Zoho Payments api key
+
 - <h3>accountId: string (required)</h3>
 
   Zoho Payments account ID.
@@ -105,18 +115,24 @@ Use it as a component in your react code
 
 - <h3>paymentsSessionId: string (required)</h3>
 
-  payments_sesssion_id from Zoho. Is a string of 16 digits
+  payments_sesssion_id from Zoho. Is usually a string of 16 digits
+
+  refer: https://www.zoho.com/in/payments/api/v1/payment-session/#create-payment-session
+
 - <h3>onWidgetBooted: callback (optional)</h3>
 
   callback function when widget is shown
 
   `Note`: event is received twice from the raw widget, I am not sure why.
+
 - <h3>onWidgetBootFailed: callback (optional)</h3>
 
   callback function when widget fails to show
+
 - <h3>onOpen: callback (optional)</h3>
 
   callback function when `open` event is passed
+
 - <h3>onCharge: callback (optional)</h3>
 
   callback function when `charge` event is passed.
@@ -127,34 +143,42 @@ Use it as a component in your react code
   `{payment_id: string, message: string}`
 
   You can use this payment_id to confirm payment status from your backend
- 
-  `Note`: Set `show` to `false` in this callback to close the widget. The widget does not autoclose(in my version at least)
+  
+  `Note`: Set `show` to `false` in this callback to close the widget
+
 - <h3>onClose: callback (optional)</h3>
 
   callback function when `close` event is passed.
 
   This is invoked when widget is closed
+
 - <h3>onNeedsSCA: callback (optional)</h3>
 
   callback function when `needs_sca` event is passed.
 
   This is the case when user chooses a payment method which 
   needs a `Secure Customer Authentication`(OTP via SMS/email) confirmation.
+
 - <h3>onSCASuccess: callback (optional)</h3>
 
   callback function when customer enters correct OTP
+
 - <h3>onSCAFailure: callback (optional)</h3>
 
   callback function when customer enters incorrect OTP
+
 - <h3>onChargeValidationError: callback (optional)</h3>
 
   TODO - figure out when this event is called
+
 - <h3>onChargeThreedsError: callback (optional)</h3>
 
   TODO - figure out when this event is called
+
 - <h3>onError: callback (optional)</h3>
 
   TODO - unused now. will be used as a catch-all errors in the future.
+
 - <h3>onEvent: callback (optional)</h3>
 
   callback function called on all events(use this for logging or debugging).
