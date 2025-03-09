@@ -56,62 +56,84 @@ Use it as a component in your react code
 ## Documentation
 `Notes`: Only show the widget after you have payments_session_id from Zoho Payments API. The widget immediately starts up and tries to load a iframe for the payment with the payments_session_id in its url
 ## Props
-- `show`: boolean (required)
+- <h3>show: boolean (required)</h3>
   prop to show the zoho payments widget
 
   `Note`: Only set this to true after required props are filled
-  If set to show without valid api-key, account-id or payments_session_id, the widget will not boot up correctly     
-- `businessName`: string (required)
+  
+  If set to show without valid api-key, account-id or payments_session_id, the widget will not boot up correctly
 
-  Will be visible at the top of the widget as a title
+- <h3>businessName: string (required)</h3>
 
-  TODO - add screenshot
-
+  Will be visible at the top of the widget as a title(highlighted inside red-rectangle below)
+  
+  <img width="300" alt="zoho-payments-name" src="https://github.com/user-attachments/assets/45e044f3-2cb9-4860-9f41-4bcb9da249d4" />
+  
   `Note`: The name/account which will appear in their UPI app or banking page will be the one you have registered with Zoho payments
 
   This text will appear only in the Zoho Payments Widget
 
   (not on their HDFC page or GooglePay app or PhonePe app etc, which will have the registered organization name and account)
-- `businessDesc`: string (required)
 
-  Will be visible under businessName as a subtitle
-  TODO - add screenshot
-- `buyerName`: string (required)
+- <h3>businessDesc: string (required)</h3>
+
+  Will be visible under businessName as a subtitle(highlighted inside red-rectangle below)
+  
+  <img width="300" alt="zoho-payments-desc" src="https://github.com/user-attachments/assets/2ad66070-588b-43c5-9d66-81206c2e6339" />
+
+- <h3>buyerName: string (required)</h3>
 
   Name of the buyer when confirmation is sent
-- `buyerEmail`: string (required)
+
+- <h3>buyerEmail: string (required)</h3>
 
   email address of the buyer to which confirmation will be sent
-- `amountInRs`: string (required)
 
-  Payment amount in rupees as a string
+- <h3>amountInRs: string (required)</h3>
 
-  `Note`: amount given should match the amount sent to Zoho api when getting payments_session_id 
-- `apiKey`: string (required)
+  Payment amount in rupees as a string. Will be shown in widget(highlighted inside red-rectangle below)
+  
+  <img width="300" alt="zoho-payments-amount" src="https://github.com/user-attachments/assets/24b7197c-8b74-41b8-ad2f-9665cc91b660" />
 
-  Zoho Payments api key 
-- `accountId`: string (required)
+  `Note`: amount given should match the amount sent to Zoho api when getting payments_session_id
 
-  Zoho Payments account ID
+- <h3>apiKey: string (required)</h3>
 
-  TODO - add screenshot
-- `paymentsSessionId`: string (required)
+  Zoho Payments api key
+
+- <h3>accountId: string (required)</h3>
+
+  Zoho Payments account ID.
+
+  Can be found in your Zoho payments dashboard.
+
+  Click on the dropdown on your user icon on the top right
+
+  (position is in the red rectangle below)
+
+  <img width="300" alt="zoho-payments-account-id" src="https://github.com/user-attachments/assets/69dde41f-2538-4f83-8840-a6f0ccfd87d6" />
+
+- <h3>paymentsSessionId: string (required)</h3>
 
   payments_sesssion_id from Zoho. Is usually a string of 16 digits
 
   refer: https://www.zoho.com/in/payments/api/v1/payment-session/#create-payment-session
-- `onWidgetBooted`: callback (optional)
+
+- <h3>onWidgetBooted: callback (optional)</h3>
 
   callback function when widget is shown
 
-  `Note`: event is received twice from the raw widget, I am not sure why
-- `onWidgetBootFailed`: callback (optional)
+  `Note`: event is received twice from the raw widget, I am not sure why.
+
+- <h3>onWidgetBootFailed: callback (optional)</h3>
 
   callback function when widget fails to show
-- `onOpen`: callback (optional)
+
+- <h3>onOpen: callback (optional)</h3>
 
   callback function when `open` event is passed
-- `onCharge`: callback (optional)
+
+- <h3>onCharge: callback (optional)</h3>
 
   callback function when `charge` event is passed.
 
@@ -121,35 +143,43 @@ Use it as a component in your react code
   `{payment_id: string, message: string}`
 
   You can use this payment_id to confirm payment status from your backend
-
+  
   `Note`: Set `show` to `false` in this callback to close the widget
-- `onClose`: callback (optional)
+
+- <h3>onClose: callback (optional)</h3>
 
   callback function when `close` event is passed.
 
   This is invoked when widget is closed
-- `onNeedsSCA`: callback (optional)
+
+- <h3>onNeedsSCA: callback (optional)</h3>
 
   callback function when `needs_sca` event is passed.
 
   This is the case when user chooses a payment method which 
   needs a `Secure Customer Authentication`(OTP via SMS/email) confirmation.
-- `onSCASuccess`: callback (optional)
+
+- <h3>onSCASuccess: callback (optional)</h3>
 
   callback function when customer enters correct OTP
-- `onSCAFailure`: callback (optional)
+
+- <h3>onSCAFailure: callback (optional)</h3>
 
   callback function when customer enters incorrect OTP
-- `onChargeValidationError`: callback (optional)
+
+- <h3>onChargeValidationError: callback (optional)</h3>
 
   TODO - figure out when this event is called
-- `onChargeThreedsError`: callback (optional)
+
+- <h3>onChargeThreedsError: callback (optional)</h3>
 
   TODO - figure out when this event is called
-- `onError`: callback (optional)
+
+- <h3>onError: callback (optional)</h3>
 
   TODO - unused now. will be used as a catch-all errors in the future.
-- `onEvent`: callback (optional)
+
+- <h3>onEvent: callback (optional)</h3>
 
   callback function called on all events(use this for logging or debugging).
 
@@ -165,6 +195,7 @@ Refer to readme in the folder for more details on setting env variables up and r
 
 
 # TODOs
+- add test with fetching payments_session_id. Zoho Payments does not have sandbox-mode yet, so cannot add successfull payment test.
 - more complete docs for props
 - example with overriding styles(inline instead of default which is a full-page modal-style widget)
 - check which nodejs versions are supported
