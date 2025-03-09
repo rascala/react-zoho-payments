@@ -41,6 +41,10 @@ yarn dev
 
 Open the url printed in the console(usually http://localhost:3000, if this port is occupied it will start at port :3001 etc)
 
+Sample recording below
+
+https://github.com/user-attachments/assets/826443b6-b2bc-4d3c-926d-d40ea6431501
+
 ## Server functions
 
 The server functions in server/actions.ts have two api calls
