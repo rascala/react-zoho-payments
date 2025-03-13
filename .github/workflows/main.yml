@@ -6,6 +6,7 @@ jobs:
   main:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PARENT_TEST_VALUE: ${{ secrets.TEST_VALUE }}
 
     name: Test & Build
     runs-on: ubuntu-latest
@@ -52,14 +53,15 @@ jobs:
         run: pnpm lint:ci
 
       - name: Run tests
-        run: pnpm test:ci
         env:
+          STATIC_TEST_VALUE: some_static_env_var
           TEST_VALUE: ${{ secrets.TEST_VALUE }}
           ZOHO_CLIENT_ID: ${{ secrets.ZOHO_CLIENT_ID }}
           ZOHO_CLIENT_SECRET: ${{ secrets.ZOHO_CLIENT_SECRET }}
           ZOHO_REFRESH_TOKEN: ${{ secrets.ZOHO_REFRESH_TOKEN }}
           NEXT_PUBLIC_ZOHO_PAYMENTS_API_KEY: ${{ secrets.NEXT_PUBLIC_ZOHO_PAYMENTS_API_KEY }}
           NEXT_PUBLIC_ZOHO_PAYMENTS_ACCOUNT_ID: ${{ secrets.NEXT_PUBLIC_ZOHO_PAYMENTS_ACCOUNT_ID }}
+        run: pnpm test:ci
 
       - name: Build package
         run: pnpm build
