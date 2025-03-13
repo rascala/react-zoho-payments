@@ -186,7 +186,7 @@ Use it as a component in your react code
   Check examples/ for usage on how this is used to show event logs.
 
 ## Example
-Refer to https://github.com/rascala/react-zoho-payments/examples/nextjs15-zoho-payments
+Refer to https://github.com/rascala/react-zoho-payments/tree/main/examples/nextjs15-zoho-payments
 
 Full-stack NextJs 15 project
 - with server functions to get access_token, payments_session_id
