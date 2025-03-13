@@ -2,7 +2,7 @@ pre-commit:
   parallel: false
   commands:
     lint:
-      run: pnpm biome check --write --unsafe --staged --no-errors-on-unmatched && git add -u
+      run: pnpm biome check --write --unsafe --no-errors-on-unmatched
     typecheck:
       run: pnpm tsc
     build:

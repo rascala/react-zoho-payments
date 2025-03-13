@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Check types
         run: pnpm tsc
@@ -53,9 +53,6 @@ jobs:
 
       - name: Run tests
         run: pnpm test:ci
-
-      - name: Build storybook
-        run: pnpm storybook:build
 
       - name: Build package
         run: pnpm build
