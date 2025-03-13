@@ -9,6 +9,7 @@ jobs:
 
     name: Test & Build
     runs-on: ubuntu-latest
+    environment: ci
     timeout-minutes: 10
 
     steps:
@@ -52,6 +53,12 @@ jobs:
         run: pnpm lint:ci
 
       - name: Run tests
+        env:
+          ZOHO_CLIENT_ID: ${{ secrets.ZOHO_CLIENT_ID }}
+          ZOHO_CLIENT_SECRET: ${{ secrets.ZOHO_CLIENT_SECRET }}
+          ZOHO_REFRESH_TOKEN: ${{ secrets.ZOHO_REFRESH_TOKEN }}
+          NEXT_PUBLIC_ZOHO_PAYMENTS_API_KEY: ${{ secrets.NEXT_PUBLIC_ZOHO_PAYMENTS_API_KEY }}
+          NEXT_PUBLIC_ZOHO_PAYMENTS_ACCOUNT_ID: ${{ secrets.NEXT_PUBLIC_ZOHO_PAYMENTS_ACCOUNT_ID }}
         run: pnpm test:ci
 
       - name: Build package
