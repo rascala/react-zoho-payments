@@ -24,6 +24,9 @@ async function getAccessToken() {
 }
 
 async function getPaymentSessionId(amount: string) {
+	console.log(
+		`--- process.env.TEST_VALUE = ${JSON.stringify(process.env.TEST_VALUE)}`,
+	);
 	const [ok, accessTokenOrError] = await getAccessToken();
 	if (!ok) {
 		return [false, accessTokenOrError];
