@@ -3,7 +3,6 @@
 	"files": {
 		"ignore": [
 			"**/dist/**",
-			"**/storybook-static/**",
 			"**/coverage/**",
 			"**/.next/**",
 			"**/node_modules/**",
